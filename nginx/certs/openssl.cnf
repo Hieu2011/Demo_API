@@ -1,0 +1,35 @@
+﻿# OpenSSL Configuration File for creating CA and server certificates
+
+[ req ]
+default_bits       = 2048
+default_md         = sha256
+distinguished_name = req_distinguished_name
+req_extensions     = v3_req
+prompt             = no
+
+[ req_distinguished_name ]
+C  = VN
+ST = HCM
+L  = HCM
+O  = Google Trust Services
+OU = HPM
+CN = dockerapi.com
+
+[ v3_req ]
+# These are extensions that will be added when creating the server certificate
+basicConstraints = CA:FALSE
+keyUsage = critical, digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = dockerapi.com
+DNS.2 = www.dockerapi.com
+
+# This section is for the CA certificate
+[ v3_ca ]
+# Extensions for the root certificate
+basicConstraints = CA:true
+keyUsage = critical, keyCertSign, cRLSign
+subjectKeyIdentifier = hash
+authorityKeyIdentifier = keyid:always,issuer
