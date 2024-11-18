@@ -31,7 +31,7 @@ namespace DockerNginx.Controllers
         }
         [HttpGet(Name = "LoadInfoWeather")]
         public IEnumerable<WeatherForecast> LoadInfoWeather()
-        {
+        { 
             return Enumerable.Range(1, 2).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),
