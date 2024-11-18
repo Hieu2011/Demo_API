@@ -29,5 +29,16 @@ namespace DockerNginx.Controllers
             })
             .ToArray();
         }
+        [HttpGet(Name = "LoadInfoWeather")]
+        public IEnumerable<WeatherForecast> LoadInfoWeather()
+        {
+            return Enumerable.Range(1, 2).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)] + "_HPM"
+            })
+            .ToArray();
+        }
     }
 }
