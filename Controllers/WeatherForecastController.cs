@@ -27,7 +27,7 @@ namespace DockerNginx.Controllers
                 TemperatureC = Random.Shared.Next(-20, 55),
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
-            .ToArray(); 
+            .ToArray();
         }
         [HttpGet, Route("LoadInfoWeather")]
         public IEnumerable<WeatherForecast> LoadInfoWeather()
