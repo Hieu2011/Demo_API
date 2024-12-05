@@ -36,7 +36,7 @@ namespace DockerNginx.Controllers
             {
                 Date = DateTime.Now.AddDays(index),
                 TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)] + "_HieuPro"
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)] + "_HieuPro_vv"
             })
             .ToArray();
         }
